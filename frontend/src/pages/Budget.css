@@ -1,0 +1,307 @@
+.page {
+  width: 100%;
+
+  max-width: none;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 40px 20px 60px;
+  box-sizing: border-box;
+}
+.page-header {
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.page-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+.page-header h1 {
+  margin-bottom: 20px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin: 0;
+}
+
+.message {
+  padding: 12px 16px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  background: #f3f4f6;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Create / Update form */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6366f1;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+}
+
+.primary-button,
+.secondary-button,
+.edit-button,
+.delete-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary-button {
+  background: #6366f1;
+  color: white;
+}
+
+.secondary-button {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Budget cards */
+
+.budget-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.budget-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.budget-header h3 {
+  margin: 0;
+}
+
+.budget-amount {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.budget-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.budget-detail {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.budget-detail span {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+/* Progress */
+
+.budget-progress {
+  width: 100%;
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.budget-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.budget-progress-bar.on_track {
+  background-color: #22c55e;
+}
+
+.budget-progress-bar.warning {
+  background-color: #f59e0b;
+}
+
+.budget-progress-bar.exceeded {
+  background-color: #ef4444;
+}
+
+/* Status */
+
+.budget-status {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.budget-status.on_track {
+  color: #16a34a;
+}
+
+.budget-status.warning {
+  color: #d97706;
+}
+
+.budget-status.exceeded {
+  color: #dc2626;
+}
+
+/* Actions */
+
+.budget-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-button {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.delete-button {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.primary-button:hover,
+.secondary-button:hover {
+  opacity: 0.85;
+}
+
+/* Empty state */
+
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 25px 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-list {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+.budget-status {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.budget-status.on_track {
+  color: #22c55e;
+}
+
+.budget-status.warning {
+  color: #f59e0b;
+}
+
+.budget-status.exceeded {
+  color: #ef4444;
+}
+
+.budget-percentage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.budget-percentage strong {
+  font-size: 1.1rem;
+}
+
+.budget-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.budget-detail span {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.budget-detail strong {
+  font-size: 1.05rem;
+}
