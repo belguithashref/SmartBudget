@@ -5,15 +5,13 @@ import {
   PieChart,
   ShieldCheck,
   CheckCircle2,
-  Github,
-  Linkedin,
   Globe,
   Menu,
   X,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../hooks/useLanguage";
 
 export default function Landing() {
   const { language, changeLanguage } = useLanguage();
