@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import Expenses from "./pages/Expenses";
 import Income from "./pages/Income";
 import Budgets from "./pages/Budgets";
+import Landing from "./pages/Landing";
 
 import "./App.css";
 
@@ -20,7 +21,7 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/register" replace />} />
+          <Route path="/" element={<Landing />} />
           {/* Public pages */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
