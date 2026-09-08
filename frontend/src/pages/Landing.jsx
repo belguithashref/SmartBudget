@@ -625,7 +625,7 @@ export default function Landing() {
                 rel="noreferrer"
                 className="rounded-lg bg-white/5 p-2.5 text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
-                <Github size={18} />
+                <Globe size={20} />
               </a>
 
               <a
@@ -634,7 +634,7 @@ export default function Landing() {
                 rel="noreferrer"
                 className="rounded-lg bg-white/5 p-2.5 text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
-                <Linkedin size={18} />
+                <Globe size={20} />
               </a>
             </div>
           </div>
