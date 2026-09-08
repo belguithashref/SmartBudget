@@ -21,7 +21,7 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Landing to="/landing" replace />} />
           {/* Public pages */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
