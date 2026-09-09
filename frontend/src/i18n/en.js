@@ -204,6 +204,88 @@ const en = {
   loginFailed: "Login failed.",
   userInfoFailed: "Could not load user information.",
   loginSuccessful: "Login successful!",
+
+  // Landing Page
+  landingFeatures: "Features",
+  landingHowItWorks: "How it works",
+  landingAbout: "About",
+  landingGetStarted: "Get Started",
+
+  landingToggleNavigation: "Toggle navigation",
+
+  landingHeroBadge: "Your personal finance companion",
+  landingHeroTitle: "Take control of",
+  landingHeroHighlight: "your money.",
+  landingHeroDescription:
+    "SmartBudget helps you track your income and expenses, manage your budget, and build better financial habits. Simple, secure and made for you.",
+
+  landingFreeToUse: "Free to use",
+  landingSecure: "Secure",
+  landingNoCreditCard: "No credit card required",
+
+  landingWelcomeBack: "Welcome back",
+  landingMonthlyBudget: "Monthly Budget",
+  landingSpendingOverview: "Spending overview",
+  landingThisMonth: "This month",
+
+  landingFeaturesTitle: "Everything you need to manage your money",
+  landingFeaturesDescription:
+    "SmartBudget gives you the tools to track, plan and understand your finances.",
+
+  landingFeatureTrackTitle: "Track your income & expenses",
+  landingFeatureTrackText:
+    "Easily add and categorize your transactions to see where your money goes.",
+
+  landingFeatureBudgetTitle: "Monitor your budget",
+  landingFeatureBudgetText:
+    "Set a budget and track your progress so you can stay in control.",
+
+  landingFeatureInsightsTitle: "Understand your spending",
+  landingFeatureInsightsText:
+    "Get a clear overview of your financial activity with useful visual insights.",
+
+  landingFeatureSecurityTitle: "Secure personal accounts",
+  landingFeatureSecurityText:
+    "Your financial information stays protected with secure authentication.",
+
+  landingHowItWorksTitle: "Get started in 4 simple steps",
+  landingHowItWorksDescription:
+    "It only takes a few minutes to start taking control of your finances.",
+
+  landingStep1Title: "Create an account",
+  landingStep1Text: "Sign up and create your personal SmartBudget account.",
+
+  landingStep2Title: "Add your income & expenses",
+  landingStep2Text: "Enter your transactions and organize them easily.",
+
+  landingStep3Title: "Set your budget",
+  landingStep3Text: "Choose your budget and financial goals.",
+
+  landingStep4Title: "Monitor your situation",
+  landingStep4Text: "Track your progress and make better decisions.",
+
+  landingSeeItInAction: "See it in action",
+  landingDashboardTitle: "A clear and simple financial dashboard",
+  landingDashboardDescription:
+    "Get a complete overview of your finances at a glance. Track your balance, income, expenses and budget progress from one clean interface.",
+
+  landingDashboardFeature1: "Clear financial overview",
+  landingDashboardFeature2: "Visual spending insights",
+  landingDashboardFeature3: "Budget progress tracking",
+  landingDashboardFeature4: "Access your information anytime",
+
+  landingCtaTitle: "Start managing your money smarter today.",
+  landingCtaDescription:
+    "Take the first step toward better financial habits with SmartBudget.",
+  landingCreateAccount: "Create your free account",
+
+  landingFooterDescription:
+    "Better financial habits. A clearer financial future.",
+
+  landingNavigation: "Navigation",
+  landingConnect: "Connect",
+
+  landingCopyright: "© 2026 SmartBudget. All rights reserved.",
 };
 
 export default en;

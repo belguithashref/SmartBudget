@@ -5,17 +5,23 @@ import {
   PieChart,
   ShieldCheck,
   CheckCircle2,
+  Github,
+  Linkedin,
   Globe,
   Menu,
   X,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Landing() {
-  const { language, changeLanguage } = useLanguage();
+  const { t, language, changeLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    changeLanguage(language === "en" ? "fr" : "en");
+  };
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({
@@ -47,46 +53,46 @@ export default function Landing() {
               onClick={() => scrollToSection("features")}
               className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
-              Features
+              {t("landingFeatures")}
             </button>
 
             <button
               onClick={() => scrollToSection("how-it-works")}
               className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
-              How it works
+              {t("landingHowItWorks")}
             </button>
 
             <button
               onClick={() => scrollToSection("about")}
               className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
-              About
+              {t("landingAbout")}
             </button>
           </nav>
 
           {/* Desktop actions */}
           <div className="hidden items-center gap-3 md:flex">
             <button
-              onClick={() => changeLanguage(language === "en" ? "fr" : "en")}
+              onClick={toggleLanguage}
               className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
             >
               <Globe size={16} />
-              {language.toUpperCase()}
+              {language === "en" ? "FR" : "EN"}
             </button>
 
             <Link
               to="/login"
               className="rounded-xl border border-blue-200 px-5 py-2.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-50"
             >
-              Login
+              {t("login")}
             </Link>
 
             <Link
               to="/register"
               className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700"
             >
-              Get Started
+              {t("landingGetStarted")}
             </Link>
           </div>
 
@@ -94,7 +100,7 @@ export default function Landing() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="rounded-lg p-2 text-slate-700 md:hidden"
-            aria-label="Toggle navigation"
+            aria-label={t("landingToggleNavigation")}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -108,37 +114,47 @@ export default function Landing() {
                 onClick={() => scrollToSection("features")}
                 className="text-left text-sm font-medium text-slate-600"
               >
-                Features
+                {t("landingFeatures")}
               </button>
 
               <button
                 onClick={() => scrollToSection("how-it-works")}
                 className="text-left text-sm font-medium text-slate-600"
               >
-                How it works
+                {t("landingHowItWorks")}
               </button>
 
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-left text-sm font-medium text-slate-600"
               >
-                About
+                {t("landingAbout")}
               </button>
 
-              <div className="flex gap-3 border-t border-slate-100 pt-4">
-                <Link
-                  to="/login"
-                  className="flex-1 rounded-xl border border-blue-200 py-2.5 text-center text-sm font-semibold text-blue-600"
+              <div className="border-t border-slate-100 pt-4">
+                <button
+                  onClick={toggleLanguage}
+                  className="mb-3 flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-600 hover:bg-slate-100"
                 >
-                  Login
-                </Link>
+                  <Globe size={16} />
+                  {language === "en" ? t("french") : t("english")}
+                </button>
 
-                <Link
-                  to="/register"
-                  className="flex-1 rounded-xl bg-blue-600 py-2.5 text-center text-sm font-semibold text-white"
-                >
-                  Get Started
-                </Link>
+                <div className="flex gap-3">
+                  <Link
+                    to="/login"
+                    className="flex-1 rounded-xl border border-blue-200 py-2.5 text-center text-sm font-semibold text-blue-600"
+                  >
+                    {t("login")}
+                  </Link>
+
+                  <Link
+                    to="/register"
+                    className="flex-1 rounded-xl bg-blue-600 py-2.5 text-center text-sm font-semibold text-white"
+                  >
+                    {t("landingGetStarted")}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -148,7 +164,6 @@ export default function Landing() {
       {/* ================= HERO ================= */}
       <main>
         <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-32">
-          {/* Background decorations */}
           <div className="absolute -left-32 top-40 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
           <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-indigo-200/30 blur-3xl" />
 
@@ -156,18 +171,18 @@ export default function Landing() {
             {/* Hero text */}
             <div>
               <div className="mb-6 inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-600 shadow-sm">
-                Your personal finance companion
+                {t("landingHeroBadge")}
               </div>
 
               <h1 className="max-w-2xl text-5xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-6xl">
-                Take control of{" "}
-                <span className="text-blue-600">your money.</span>
+                {t("landingHeroTitle")}{" "}
+                <span className="text-blue-600">
+                  {t("landingHeroHighlight")}
+                </span>
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                SmartBudget helps you track your income and expenses, manage
-                your budget, and build better financial habits. Simple, secure
-                and made for you.
+                {t("landingHeroDescription")}
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -175,7 +190,7 @@ export default function Landing() {
                   to="/register"
                   className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-xl shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
                 >
-                  Get Started
+                  {t("landingGetStarted")}
                   <ArrowRight
                     size={18}
                     className="transition group-hover:translate-x-1"
@@ -186,22 +201,25 @@ export default function Landing() {
                   to="/login"
                   className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
                 >
-                  Login
+                  {t("login")}
                 </Link>
               </div>
 
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-                {["Free to use", "Secure", "No credit card required"].map(
-                  (item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-slate-500"
-                    >
-                      <CheckCircle2 size={16} className="text-emerald-500" />
-                      {item}
-                    </div>
-                  ),
-                )}
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <CheckCircle2 size={16} className="text-emerald-500" />
+                  {t("landingFreeToUse")}
+                </div>
+
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <CheckCircle2 size={16} className="text-emerald-500" />
+                  {t("landingSecure")}
+                </div>
+
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <CheckCircle2 size={16} className="text-emerald-500" />
+                  {t("landingNoCreditCard")}
+                </div>
               </div>
             </div>
 
@@ -222,58 +240,72 @@ export default function Landing() {
                   <div className="hidden w-40 border-r border-slate-100 bg-slate-50/70 p-4 sm:block">
                     <div className="mb-8 flex items-center gap-2">
                       <div className="h-7 w-7 rounded-lg bg-blue-600" />
+
                       <span className="text-xs font-bold">SmartBudget</span>
                     </div>
 
                     <div className="space-y-2">
-                      {[
-                        "Dashboard",
-                        "Expenses",
-                        "Income",
-                        "Budgets",
-                        "Settings",
-                      ].map((item, index) => (
-                        <div
-                          key={item}
-                          className={`rounded-lg px-3 py-2 text-[11px] ${
-                            index === 0
-                              ? "bg-blue-100 font-semibold text-blue-600"
-                              : "text-slate-500"
-                          }`}
-                        >
-                          {item}
-                        </div>
-                      ))}
+                      <div className="rounded-lg bg-blue-100 px-3 py-2 text-[11px] font-semibold text-blue-600">
+                        {t("dashboard")}
+                      </div>
+
+                      <div className="rounded-lg px-3 py-2 text-[11px] text-slate-500">
+                        {t("expenses")}
+                      </div>
+
+                      <div className="rounded-lg px-3 py-2 text-[11px] text-slate-500">
+                        {t("income")}
+                      </div>
+
+                      <div className="rounded-lg px-3 py-2 text-[11px] text-slate-500">
+                        {t("budgets")}
+                      </div>
+
+                      <div className="rounded-lg px-3 py-2 text-[11px] text-slate-500">
+                        {t("settings")}
+                      </div>
                     </div>
                   </div>
 
                   {/* Dashboard content */}
                   <div className="flex-1 p-5">
                     <div className="mb-5">
-                      <p className="text-[10px] text-slate-400">Welcome back</p>
+                      <p className="text-[10px] text-slate-400">
+                        {t("landingWelcomeBack")}
+                      </p>
+
                       <h3 className="text-lg font-bold text-slate-900">
-                        Dashboard
+                        {t("dashboard")}
                       </h3>
                     </div>
 
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-3">
                       <div className="rounded-xl bg-emerald-50 p-3">
-                        <p className="text-[9px] text-emerald-600">Balance</p>
+                        <p className="text-[9px] text-emerald-600">
+                          {t("balance")}
+                        </p>
+
                         <p className="mt-1 text-sm font-bold text-slate-800">
                           2,450 TND
                         </p>
                       </div>
 
                       <div className="rounded-xl bg-blue-50 p-3">
-                        <p className="text-[9px] text-blue-600">Income</p>
+                        <p className="text-[9px] text-blue-600">
+                          {t("income")}
+                        </p>
+
                         <p className="mt-1 text-sm font-bold text-slate-800">
                           3,500 TND
                         </p>
                       </div>
 
                       <div className="rounded-xl bg-red-50 p-3">
-                        <p className="text-[9px] text-red-500">Expenses</p>
+                        <p className="text-[9px] text-red-500">
+                          {t("expenses")}
+                        </p>
+
                         <p className="mt-1 text-sm font-bold text-slate-800">
                           1,050 TND
                         </p>
@@ -284,7 +316,7 @@ export default function Landing() {
                     <div className="mt-4 rounded-xl border border-slate-100 p-4">
                       <div className="flex justify-between">
                         <span className="text-xs font-semibold text-slate-700">
-                          Monthly Budget
+                          {t("landingMonthlyBudget")}
                         </span>
 
                         <span className="text-[10px] text-slate-400">
@@ -305,11 +337,11 @@ export default function Landing() {
                     <div className="mt-4 rounded-xl border border-slate-100 p-4">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-slate-700">
-                          Spending overview
+                          {t("landingSpendingOverview")}
                         </span>
 
                         <span className="text-[10px] text-slate-400">
-                          This month
+                          {t("landingThisMonth")}
                         </span>
                       </div>
 
@@ -344,16 +376,15 @@ export default function Landing() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-bold uppercase tracking-widest text-blue-600">
-                Features
+                {t("landingFeatures")}
               </p>
 
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Everything you need to manage your money
+                {t("landingFeaturesTitle")}
               </h2>
 
               <p className="mt-4 text-slate-600">
-                SmartBudget gives you the tools to track, plan and understand
-                your finances.
+                {t("landingFeaturesDescription")}
               </p>
             </div>
 
@@ -361,26 +392,26 @@ export default function Landing() {
               {[
                 {
                   icon: BarChart3,
-                  title: "Track your income & expenses",
-                  text: "Easily add and categorize your transactions to see where your money goes.",
+                  title: "landingFeatureTrackTitle",
+                  text: "landingFeatureTrackText",
                   color: "bg-emerald-50 text-emerald-600",
                 },
                 {
                   icon: Wallet,
-                  title: "Monitor your budget",
-                  text: "Set a budget and track your progress so you can stay in control.",
+                  title: "landingFeatureBudgetTitle",
+                  text: "landingFeatureBudgetText",
                   color: "bg-purple-50 text-purple-600",
                 },
                 {
                   icon: PieChart,
-                  title: "Understand your spending",
-                  text: "Get a clear overview of your financial activity with useful visual insights.",
+                  title: "landingFeatureInsightsTitle",
+                  text: "landingFeatureInsightsText",
                   color: "bg-blue-50 text-blue-600",
                 },
                 {
                   icon: ShieldCheck,
-                  title: "Secure personal accounts",
-                  text: "Your financial information stays protected with secure authentication.",
+                  title: "landingFeatureSecurityTitle",
+                  text: "landingFeatureSecurityText",
                   color: "bg-indigo-50 text-indigo-600",
                 },
               ].map((feature) => {
@@ -398,11 +429,11 @@ export default function Landing() {
                     </div>
 
                     <h3 className="mt-6 text-lg font-bold text-slate-900">
-                      {feature.title}
+                      {t(feature.title)}
                     </h3>
 
                     <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {feature.text}
+                      {t(feature.text)}
                     </p>
                   </div>
                 );
@@ -419,16 +450,15 @@ export default function Landing() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="max-w-2xl">
               <p className="text-sm font-bold uppercase tracking-widest text-blue-600">
-                How it works
+                {t("landingHowItWorks")}
               </p>
 
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Get started in 4 simple steps
+                {t("landingHowItWorksTitle")}
               </h2>
 
               <p className="mt-4 text-slate-600">
-                It only takes a few minutes to start taking control of your
-                finances.
+                {t("landingHowItWorksDescription")}
               </p>
             </div>
 
@@ -436,23 +466,23 @@ export default function Landing() {
               {[
                 {
                   number: "01",
-                  title: "Create an account",
-                  text: "Sign up and create your personal SmartBudget account.",
+                  title: "landingStep1Title",
+                  text: "landingStep1Text",
                 },
                 {
                   number: "02",
-                  title: "Add your income & expenses",
-                  text: "Enter your transactions and organize them easily.",
+                  title: "landingStep2Title",
+                  text: "landingStep2Text",
                 },
                 {
                   number: "03",
-                  title: "Set your budget",
-                  text: "Choose your budget and financial goals.",
+                  title: "landingStep3Title",
+                  text: "landingStep3Text",
                 },
                 {
                   number: "04",
-                  title: "Monitor your situation",
-                  text: "Track your progress and make better decisions.",
+                  title: "landingStep4Title",
+                  text: "landingStep4Text",
                 },
               ].map((step) => (
                 <div key={step.number} className="relative">
@@ -461,11 +491,11 @@ export default function Landing() {
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900">
-                    {step.title}
+                    {t(step.title)}
                   </h3>
 
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    {step.text}
+                    {t(step.text)}
                   </p>
                 </div>
               ))}
@@ -505,37 +535,57 @@ export default function Landing() {
 
             <div className="order-1 lg:order-2">
               <p className="text-sm font-bold uppercase tracking-widest text-blue-600">
-                See it in action
+                {t("landingSeeItInAction")}
               </p>
 
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                A clear and simple financial dashboard
+                {t("landingDashboardTitle")}
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                Get a complete overview of your finances at a glance. Track your
-                balance, income, expenses and budget progress from one clean
-                interface.
+                {t("landingDashboardDescription")}
               </p>
 
               <div className="mt-7 space-y-4">
-                {[
-                  "Clear financial overview",
-                  "Visual spending insights",
-                  "Budget progress tracking",
-                  "Access your information anytime",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2
-                      size={20}
-                      className="shrink-0 text-emerald-500"
-                    />
+                <div className="flex items-center gap-3">
+                  <CheckCircle2
+                    size={20}
+                    className="shrink-0 text-emerald-500"
+                  />
+                  <span className="text-sm font-medium text-slate-700">
+                    {t("landingDashboardFeature1")}
+                  </span>
+                </div>
 
-                    <span className="text-sm font-medium text-slate-700">
-                      {item}
-                    </span>
-                  </div>
-                ))}
+                <div className="flex items-center gap-3">
+                  <CheckCircle2
+                    size={20}
+                    className="shrink-0 text-emerald-500"
+                  />
+                  <span className="text-sm font-medium text-slate-700">
+                    {t("landingDashboardFeature2")}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <CheckCircle2
+                    size={20}
+                    className="shrink-0 text-emerald-500"
+                  />
+                  <span className="text-sm font-medium text-slate-700">
+                    {t("landingDashboardFeature3")}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <CheckCircle2
+                    size={20}
+                    className="shrink-0 text-emerald-500"
+                  />
+                  <span className="text-sm font-medium text-slate-700">
+                    {t("landingDashboardFeature4")}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -546,12 +596,11 @@ export default function Landing() {
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-12 text-white shadow-2xl shadow-blue-600/20 md:flex-row md:px-12">
             <div>
               <h2 className="text-2xl font-bold sm:text-3xl">
-                Start managing your money smarter today.
+                {t("landingCtaTitle")}
               </h2>
 
               <p className="mt-2 max-w-xl text-blue-100">
-                Take the first step toward better financial habits with
-                SmartBudget.
+                {t("landingCtaDescription")}
               </p>
             </div>
 
@@ -559,7 +608,7 @@ export default function Landing() {
               to="/register"
               className="group flex shrink-0 items-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-blue-600 transition hover:bg-blue-50"
             >
-              Create your free account
+              {t("landingCreateAccount")}
               <ArrowRight
                 size={18}
                 className="transition group-hover:translate-x-1"
@@ -584,39 +633,39 @@ export default function Landing() {
             </Link>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">
-              Better financial habits. A clearer financial future.
+              {t("landingFooterDescription")}
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold">Navigation</h3>
+            <h3 className="text-sm font-semibold">{t("landingNavigation")}</h3>
 
             <div className="mt-4 space-y-3 text-sm text-slate-400">
               <button
                 onClick={() => scrollToSection("features")}
                 className="block transition hover:text-white"
               >
-                Features
+                {t("landingFeatures")}
               </button>
 
               <button
                 onClick={() => scrollToSection("how-it-works")}
                 className="block transition hover:text-white"
               >
-                How it works
+                {t("landingHowItWorks")}
               </button>
 
               <button
                 onClick={() => scrollToSection("about")}
                 className="block transition hover:text-white"
               >
-                About
+                {t("landingAbout")}
               </button>
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold">Connect</h3>
+            <h3 className="text-sm font-semibold">{t("landingConnect")}</h3>
 
             <div className="mt-4 flex gap-3">
               <a
@@ -625,7 +674,7 @@ export default function Landing() {
                 rel="noreferrer"
                 className="rounded-lg bg-white/5 p-2.5 text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
-                <Globe size={20} />
+                <Github size={18} />
               </a>
 
               <a
@@ -634,7 +683,7 @@ export default function Landing() {
                 rel="noreferrer"
                 className="rounded-lg bg-white/5 p-2.5 text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
-                <Globe size={20} />
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
@@ -642,14 +691,15 @@ export default function Landing() {
 
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-6 py-5 text-xs text-slate-500 sm:flex-row lg:px-8">
-            <span>© 2026 SmartBudget. All rights reserved.</span>
+            <span>{t("landingCopyright")}</span>
 
             <button
-              onClick={() => changeLanguage(language === "en" ? "fr" : "en")}
+              onClick={toggleLanguage}
               className="flex items-center gap-2 transition hover:text-white"
             >
               <Globe size={14} />
-              {language === "en" ? "English" : "Français"}
+
+              {language === "en" ? t("french") : t("english")}
             </button>
           </div>
         </div>

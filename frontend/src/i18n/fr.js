@@ -203,6 +203,90 @@ const fr = {
   loginFailed: "Échec de la connexion.",
   userInfoFailed: "Impossible de charger les informations utilisateur.",
   loginSuccessful: "Connexion réussie !",
+
+  // Landing Page
+  landingFeatures: "Fonctionnalités",
+  landingHowItWorks: "Comment ça marche",
+  landingAbout: "À propos",
+  landingGetStarted: "Commencer",
+
+  landingToggleNavigation: "Ouvrir le menu",
+
+  landingHeroBadge: "Votre compagnon financier personnel",
+  landingHeroTitle: "Prenez le contrôle de",
+  landingHeroHighlight: "votre argent.",
+  landingHeroDescription:
+    "SmartBudget vous aide à suivre vos revenus et vos dépenses, gérer votre budget et adopter de meilleures habitudes financières. Simple, sécurisé et conçu pour vous.",
+
+  landingFreeToUse: "Gratuit",
+  landingSecure: "Sécurisé",
+  landingNoCreditCard: "Aucune carte bancaire requise",
+
+  landingWelcomeBack: "Bienvenue",
+  landingMonthlyBudget: "Budget mensuel",
+  landingSpendingOverview: "Aperçu des dépenses",
+  landingThisMonth: "Ce mois-ci",
+
+  landingFeaturesTitle: "Tout ce dont vous avez besoin pour gérer votre argent",
+  landingFeaturesDescription:
+    "SmartBudget vous donne les outils nécessaires pour suivre, planifier et comprendre vos finances.",
+
+  landingFeatureTrackTitle: "Suivez vos revenus et vos dépenses",
+  landingFeatureTrackText:
+    "Ajoutez et catégorisez facilement vos transactions pour savoir où va votre argent.",
+
+  landingFeatureBudgetTitle: "Suivez votre budget",
+  landingFeatureBudgetText:
+    "Définissez un budget et suivez votre progression pour garder le contrôle.",
+
+  landingFeatureInsightsTitle: "Comprenez vos dépenses",
+  landingFeatureInsightsText:
+    "Obtenez une vue claire de votre activité financière grâce à des informations visuelles utiles.",
+
+  landingFeatureSecurityTitle: "Comptes personnels sécurisés",
+  landingFeatureSecurityText:
+    "Vos informations financières restent protégées grâce à une authentification sécurisée.",
+
+  landingHowItWorksTitle: "Commencez en 4 étapes simples",
+  landingHowItWorksDescription:
+    "Quelques minutes suffisent pour commencer à prendre le contrôle de vos finances.",
+
+  landingStep1Title: "Créez un compte",
+  landingStep1Text:
+    "Inscrivez-vous et créez votre compte SmartBudget personnel.",
+
+  landingStep2Title: "Ajoutez vos revenus et dépenses",
+  landingStep2Text: "Saisissez vos transactions et organisez-les facilement.",
+
+  landingStep3Title: "Définissez votre budget",
+  landingStep3Text: "Choisissez votre budget et vos objectifs financiers.",
+
+  landingStep4Title: "Suivez votre situation",
+  landingStep4Text:
+    "Suivez votre progression et prenez de meilleures décisions.",
+
+  landingSeeItInAction: "Découvrez SmartBudget",
+  landingDashboardTitle: "Un tableau de bord financier clair et simple",
+  landingDashboardDescription:
+    "Obtenez une vue complète de vos finances en un coup d'œil. Suivez votre solde, vos revenus, vos dépenses et la progression de votre budget depuis une interface claire.",
+
+  landingDashboardFeature1: "Vue d'ensemble claire de vos finances",
+  landingDashboardFeature2: "Analyse visuelle de vos dépenses",
+  landingDashboardFeature3: "Suivi de la progression du budget",
+  landingDashboardFeature4: "Accédez à vos informations à tout moment",
+
+  landingCtaTitle: "Commencez à gérer votre argent plus intelligemment.",
+  landingCtaDescription:
+    "Faites le premier pas vers de meilleures habitudes financières avec SmartBudget.",
+  landingCreateAccount: "Créer votre compte gratuitement",
+
+  landingFooterDescription:
+    "De meilleures habitudes financières. Un avenir financier plus clair.",
+
+  landingNavigation: "Navigation",
+  landingConnect: "Nous suivre",
+
+  landingCopyright: "© 2026 SmartBudget. Tous droits réservés.",
 };
 
 export default fr;
