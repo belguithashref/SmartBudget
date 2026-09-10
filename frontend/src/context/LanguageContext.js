@@ -1,3 +1,7 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
-export const LanguageContext = createContext(null);
+export const LanguageContext = createContext();
+
+export function useLanguage() {
+  return useContext(LanguageContext);
+}
